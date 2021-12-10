@@ -1,6 +1,6 @@
 # HTTP Headers
 
-Parsing simple HTTP headers.
+Parsing simple HTTP headers using pre-defined header descriptions.
 
 Examples:
 
