@@ -15,7 +15,7 @@ public struct HTTPHeader<T> {
     
     public func parse(from response: HTTPURLResponse) throws -> T {
         guard let value = response.value(forHTTPHeaderField: field) else {
-            throw ParsingError.valueNotFound(field: field)
+            throw ParsingError.keyNotFound(field: field)
         }
         return try parse(value)
     }
@@ -35,7 +35,7 @@ public struct HTTPHeader<T> {
     }
     
     public enum ParsingError: Error {
-        case valueNotFound(field: String)
+        case keyNotFound(field: String)
         case typeMismatch(field: String, value: String, type: Any.Type)
     }
 }
