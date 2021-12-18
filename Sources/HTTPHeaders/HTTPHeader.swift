@@ -52,6 +52,18 @@ extension HTTPHeader where T == Int {
     }
 }
 
+extension HTTPHeader where T == Int32 {
+    public init(field: String) {
+        self.init(field: field) { Int32($0) }
+    }
+}
+
+extension HTTPHeader where T == Int64 {
+    public init(field: String) {
+        self.init(field: field) { Int64($0) }
+    }
+}
+
 extension HTTPHeader where T == Date {
     public init(field: String, options: ISO8601DateFormatter.Options? = nil) {
         self.init(field: field) {
