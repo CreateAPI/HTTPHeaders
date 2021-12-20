@@ -81,3 +81,9 @@ extension HTTPHeader where T == Double {
         self.init(field: field) { Double($0) }
     }
 }
+
+extension HTTPHeader where T == URL {
+    public init(field: String) {
+        self.init(field: field) { URL(string: $0) }
+    }
+}
