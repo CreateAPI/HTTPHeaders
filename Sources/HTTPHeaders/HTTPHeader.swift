@@ -46,6 +46,14 @@ extension HTTPHeader where T == String {
     }
 }
 
+extension HTTPHeader where T == [String] {
+    public init(field: String) {
+        self.init(field: field) {
+            $0.components(separatedBy: ",").map { $0.trimmingCharacters(in: .whitespaces) }
+        }
+    }
+}
+
 extension HTTPHeader where T == Int {
     public init(field: String) {
         self.init(field: field) { Int($0) }
