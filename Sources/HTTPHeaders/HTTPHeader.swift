@@ -95,3 +95,9 @@ extension HTTPHeader where T == URL {
         self.init(field: field) { URL(string: $0) }
     }
 }
+
+extension HTTPHeader where T == Bool {
+    public init(field: String) {
+        self.init(field: field) { Bool($0) }
+    }
+}
