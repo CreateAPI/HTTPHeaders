@@ -6,10 +6,10 @@ final class HTTPHeadersTests: XCTestCase {
         // Given
         let response = makeResponse(headers: ["X-RateLimit-Reset": "2015-01-01T00:00:00Z"])
         let header = HTTPHeader<String>(field: "X-RateLimit-Reset")
-        
+
         // When/Then
         let value = try header.parse(from: response)
-        XCTAssertEqual(value, "2015-01-01T00:00:00.000Z")
+        XCTAssertEqual(value, "2015-01-01T00:00:00Z")
     }
     
     func testParseOptionalString() throws {
