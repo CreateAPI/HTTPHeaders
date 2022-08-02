@@ -1,5 +1,8 @@
-import XCTest
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 @testable import HTTPHeaders
+import XCTest
 
 final class HTTPHeadersTests: XCTestCase {
     func testParseString() throws {
